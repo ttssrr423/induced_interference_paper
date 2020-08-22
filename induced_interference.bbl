@@ -1,0 +1,38 @@
+\begin{thebibliography}{6}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{Bak et~al.(1987)Bak, Tang, and Wiesenfeld}]{PhysRevLett.59.381}
+Per Bak, Chao Tang, and Kurt Wiesenfeld. 1987.
+\newblock \href {https://doi.org/10.1103/PhysRevLett.59.381} {Self-organized
+  criticality: An explanation of the 1/f noise}.
+\newblock \emph{Phys. Rev. Lett.}, 59:381--384.
+
+\bibitem[{Binder(2001)}]{ising}
+Kurt Binder. 2001.
+\newblock Ising model.
+\newblock \url{https://encyclopediaofmath.org/index.php?title=Ising_model}.
+
+\bibitem[{Born and Wolf(1999)}]{BornWolf:1999:Book}
+Max Born and Emil Wolf. 1999.
+\newblock \href
+  {http://www.amazon.com/Principles-Optics-Electromagnetic-Propagation-Interference/dp/0521642221%3FSubscriptionId%3D13CT5CVB80YFWJEPWS02%26tag%3Dws%26linkCode%3Dxm2%26camp%3D2025%26creative%3D165953%26creativeASIN%3D0521642221}
+  {\emph{Principles of Optics: Electromagnetic Theory of Propagation,
+  Interference and Diffraction of Light (7th Edition)}}, 7th edition.
+\newblock Cambridge University Press.
+
+\bibitem[{Brochini et~al.(2016)Brochini, Costa, and Abadi}]{brochini2016phase}
+L.~Brochini, A.~A. Costa, and M.~Abadi. 2016.
+\newblock \href {http://arxiv.org/abs/1606.06391} {Phase transitions and
+  self-organized criticality in networks of stochastic spiking neurons}.
+
+\bibitem[{Radford(2018)}]{Radford2018ImprovingLU}
+A.~Radford. 2018.
+\newblock Improving language understanding by generative pre-training.
+
+\bibitem[{Schr{\"o}dinger(1962)}]{schrodinger1962life}
+E.~Schr{\"o}dinger. 1962.
+\newblock \href {https://books.google.co.jp/books?id=jmULAQAAIAAJ} {\emph{What
+  is Life?: The Physical Aspect of the Living Cell}}.
+\newblock University Press.
+
+\end{thebibliography}

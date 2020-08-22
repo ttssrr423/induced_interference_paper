@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Background}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Self attention as ising model}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{GPT worldlines}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Goal as function convolution}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Method}{}% 6
+\BOOKMARK [1][-]{section.4}{Experiment}{}% 7
+\BOOKMARK [2][-]{subsection.4.1}{MNIST classification}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.2}{Double slit experiment}{section.4}% 9
+\BOOKMARK [1][-]{section.5}{Further Work}{}% 10
+\BOOKMARK [2][-]{subsection.5.1}{Multi-layer encoder}{section.5}% 11
+\BOOKMARK [2][-]{subsection.5.2}{Dissipative structure}{section.5}% 12
+\BOOKMARK [1][-]{section.6}{Conclusion}{}% 13

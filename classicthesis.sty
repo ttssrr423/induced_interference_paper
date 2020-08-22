@@ -1,0 +1,76 @@
+
+\NeedsTeXFormat{LaTeX2e}%[2015/01/01] % fixed via latexrelease package, see below
+\ProvidesPackage{classicthesis}[2015/09/06 v4.2 Typographic style for a classic-looking thesis]
+%\PassOptionsToPackage{latest}{latexrelease} % replacement for fixltx2e, emulate newer kernel version if older is detected
+    %\RequirePackage{latexrelease} % will be put back in once it is available in more distributions
+\RequirePackage{ifthen}
+    \newboolean{@tocaligned} % the left column of the toc will be aligned (no indention)
+    \newboolean{@eulerchapternumbers} % use AMS Euler for chapter font (otherwise Palatino)
+    \newboolean{@drafting} % print version information on pages
+    \newboolean{@linedheaders} % chaper headers will have line above and beneath
+    \newboolean{@listsseparated} % toggles the vertical space between lof/lot entries of different chapters
+    \newboolean{@nochapters} % disable all chapter-specific commands 
+    \newboolean{@beramono} % toggle nice monospaced font (w/ bold) + pre-installed 
+    \newboolean{@eulermath} % use awesome Euler fonts for math
+    \newboolean{@parts} % use part division for the text
+    \newboolean{@minionpro} % setup for minion pro font
+    \newboolean{@minionprospacing} % use minion pro's textssc for letter spacing
+    \newboolean{@pdfspacing} % use pdftex for letterspacing (via microtype)
+    \newboolean{@subfig} % setup for preloaded @subfig package
+    \newboolean{@a5paper} % use those tiny DIN A5 pages
+    \newboolean{@dottedtoc} % page numbers in ToC flushed right
+    \newboolean{@listings} % load listings package (if not already) and setup LoL
+    \newboolean{@manychapters} % additional space in ToC after chapter number (if two digits are needed)
+    \newboolean{@floatperchapter} % numbering per chapter for all floats (i.e., Figure 1.1)
+    
+% ********************************************************************
+% Options
+% ******************************************************************** 
+\DeclareOption{tocaligned}{\setboolean{@tocaligned}{true}}
+\DeclareOption{eulerchapternumbers}{\setboolean{@eulerchapternumbers}{true}}
+\DeclareOption{drafting}{\setboolean{@drafting}{true}}
+\DeclareOption{linedheaders}{\setboolean{@linedheaders}{true}}
+\DeclareOption{listsseparated}{\setboolean{@listsseparated}{true}}
+\DeclareOption{subfigure}{%
+    \PackageWarningNoLine{classicthesis}{Package "subfigure" and option "subfigure" are deprecated, used "subfig" instead.}
+    \setboolean{@subfig}{true}%
+    }
+\DeclareOption{subfig}{\setboolean{@subfig}{true}}
+\DeclareOption{nochapters}{\setboolean{@nochapters}{true}}
+\DeclareOption{beramono}{\setboolean{@beramono}{true}} 
+\DeclareOption{eulermath}{\setboolean{@eulermath}{true}} 
+\DeclareOption{parts}{\setboolean{@parts}{true}} 
+\DeclareOption{a5paper}{\setboolean{@a5paper}{true}}
+\DeclareOption{minionpro}{\setboolean{@minionpro}{true}} 
+\DeclareOption{minionprospacing}{\setboolean{@minionprospacing}{true}} 
+\DeclareOption{pdfspacing}{\setboolean{@pdfspacing}{true}} 
+\DeclareOption{dottedtoc}{\setboolean{@dottedtoc}{true}} 
+\DeclareOption{listings}{\setboolean{@listings}{true}}
+\DeclareOption{manychapters}{\setboolean{@manychapters}{true}}
+\DeclareOption{floatperchapter}{\setboolean{@floatperchapter}{true}}
+\ProcessOptions\relax
+
+\RequirePackage{booktabs} % for better rules in tables
+\RequirePackage{textcase} % for \MakeTextUppercase
+
+\ifthenelse{\boolean{@minionprospacing}}%
+    {%
+        \PackageInfo{classicthesis}{Using MinionPro's textssc for character spacing.}%
+        \DeclareRobustCommand{\spacedallcaps}[1]{\textssc{\MakeTextUppercase{#1}}}%
+        \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textssc{\MakeTextLowercase{#1}}}%
+    }{%
+        \ifthenelse{\boolean{@pdfspacing}}%
+        {%
+            \PackageInfo{classicthesis}{Using pdftex/microtype for character spacing.%
+                                        Make sure your pdftex is version 1.40 or higher.}%
+            \microtypesetup{expansion=false}%
+            \DeclareRobustCommand{\spacedallcaps}[1]{\textls[160]{\MakeTextUppercase{#1}}}%
+            \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\textls[80]{\scshape\MakeTextLowercase{#1}}}%
+        }{%
+            \RequirePackage{soul} % for letterspacing 
+                \sodef\allcapsspacing{\upshape}{0.15em}{0.65em}{0.6em}%
+                \sodef\lowsmallcapsspacing{\scshape}{0.075em}{0.5em}{0.6em}%   
+                \DeclareRobustCommand{\spacedallcaps}[1]{\MakeTextUppercase{\allcapsspacing{#1}}}%   
+                \DeclareRobustCommand{\spacedlowsmallcaps}[1]{\MakeTextLowercase{\textsc{\lowsmallcapsspacing{#1}}}}%\protect
+        }%
+    }
